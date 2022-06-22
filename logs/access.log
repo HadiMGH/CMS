@@ -30,3 +30,7 @@
 ::1 - - [21/Jun/2022:11:44:26 +0000] "GET /api/v1.0/auth/refreshToken HTTP/1.1" 200 208 "-" "PostmanRuntime/7.29.0"
 ::1 - - [21/Jun/2022:11:45:34 +0000] "GET /api/v1.0/auth/refreshToken HTTP/1.1" 401 26 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 ::1 - - [21/Jun/2022:11:45:35 +0000] "GET /api/v1.0/auth/refreshToken HTTP/1.1" 401 26 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+::1 - - [22/Jun/2022:10:31:57 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+::1 - - [22/Jun/2022:10:32:57 +0000] "GET /api/v1.0/auth/getAllUsers HTTP/1.1" 401 26 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+::1 - - [22/Jun/2022:10:34:05 +0000] "GET /api/v1.0/auth/getAllUsers HTTP/1.1" 401 26 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
+::1 - - [22/Jun/2022:10:34:06 +0000] "GET /api/v1.0/auth/getAllUsers HTTP/1.1" 401 26 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"

@@ -32,7 +32,30 @@ const { auth, isAdmin } = require("../middlewares/auth");
  *   tags: [Auth]
  *   description: Get Refresh Token
  *   produces: [application/json]
+ *   responses: { 200: {status:"Success",message: "Refresh token successfully!"}, 400: {status:"Error",message: "Refresh token is required!"} , 500: {status:"Error",message: "Internal server error"}}
+   /api/v1.0/auth/getAllUsers:
+ *  get:
+ *   tags: [Auth]
+ *   description: Get All Users
+ *   produces: [application/json]
+ *   authorization: [Authorization]
+ *   responses: { 200: {status:"Success",message: "Get All Users successfully!"}, 400: {status:"Error",message: "Refresh token is required!"} , 500: {status:"Error",message: "Internal server error"}}
+ * /api/v1.0/auth/updateUser:
+ *  put:
+ *    tags: [Auth]
+ *    description: Update User
+ *    produces: [application/json]
+ *    parameters: [{name: "body", in: "body", example: {firstName:"John","lastName":"Doe",email: "test@gmail.com", password: "123456",Phone:"09129876543",nationalCode:"4276656542",gender:"male"}}]
+ * /api/v1.0/auth/deleteUser:
+ *  delete:
+ *    tags: [Auth]
+ *    description: Update User
+ *    produces: [application/json]
+ *      
  *
+ *     
+ * 
+
  *
  *
  */
