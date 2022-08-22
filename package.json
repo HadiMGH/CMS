@@ -5,7 +5,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "swagger",
@@ -22,10 +22,12 @@
     "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "express-rate-limit": "^6.4.0",
+    "express-validator": "^6.14.2",
     "fs": "^0.0.1-security",
+    "generate-password": "^1.7.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.19",
     "path": "^0.12.7",
     "pg": "^8.7.3",
     "sequelize": "^6.21.0",

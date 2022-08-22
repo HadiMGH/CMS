@@ -8,6 +8,11 @@ const {
   updateUser,
   deleteUser,
   addAdmin,
+  loginWithEmail,
+  loginWithVerifyCode,
+  updateUsers,
+  forghetPassword,
+  changePassword
 } = require("../controllers/auth.controller");
 const { auth, isAdmin } = require("../middlewares/auth");
 
@@ -68,5 +73,9 @@ router.get("/getAllUsers", [auth, isAdmin], getAllUsers);
 router.post("/addAdmin", [auth, isAdmin], addAdmin);
 router.put("/updateUser", [auth, isAdmin], updateUser);
 router.delete("/deleteUser", [auth, isAdmin], deleteUser);
-
+router.post("/loginWithEmail", [], loginWithEmail);
+router.post("/loginWithVerifyCode", [], loginWithVerifyCode);
+router.post("/updateUsers", [auth], updateUsers);
+router.post("/forghetPassword", [auth], forghetPassword);
+router.post("/changePassword", [auth], changePassword);
 module.exports = router;
