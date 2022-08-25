@@ -54,3 +54,50 @@ exports.create = async (req, res) => {
     }
   };
   
+  exports.getAll = async (req, res) => {
+    const limit = req.query.limit || 10;
+    const page = req.query.page || 1;
+    delete req.query.limit;
+    delete req.query.page;
+  
+    let offset = 0 + (page - 1) * limit
+  
+    try {
+      const product = await Product.findAndCountAll({
+        where: req.query,
+        limit,
+        offset,
+      });
+      const totalPage = Math.ceil(product.count / limit);
+      if (page > totalPage) return res.json({ data: [] });
+      res.status(200).send({
+        status: "Success",
+        data: product.rows,
+        length: product.count,
+        pagination: {
+          page,
+          totalPage,
+        },
+      });
+    } catch (e) {
+      res.status(500).send({
+        status: "Error",
+        message: e.message,
+      });
+    }
+  };
+  
+  exports.get = async (req, res) => {
+    try {
+      const product = await Product.findOne({ where: { id: req.params.id } });
+      res.status(200).send({
+        status: "Success",
+        data: product,
+      });
+    } catch (e) {
+      res.status(500).send({
+        status: "Error",
+        message: e.message,
+      });
+    }
+  };

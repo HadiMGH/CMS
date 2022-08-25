@@ -1,11 +1,11 @@
 const models = require("../models");
-const Country = models.Country;
+const Township = models.Township;
 const { Op: op } = require("sequelize");
 const { sequelize } = require("../models");
 
 exports.create = async (req, res) => {
   try {
-    const country = await Country.create(req.body);
+    const township = await Township.create(req.body);
     res.status(201).send({ status: "Success", messages: "Data created" });
   } catch (e) {
     res.status(500).send({
@@ -24,17 +24,17 @@ exports.getAll = async (req, res) => {
   let offset = 0 + (page - 1) * limit
 
   try {
-    const country = await Country.findAndCountAll({
+    const township = await Township.findAndCountAll({
       where: req.query,
       limit,
       offset,
     });
-    const totalPage = Math.ceil(country.count / limit);
+    const totalPage = Math.ceil(township.count / limit);
     if (page > totalPage) return res.json({ data: [] });
     res.status(200).send({
       status: "Success",
-      data: country.rows,
-      length: country.count,
+      data: township.rows,
+      length: township.count,
       pagination: {
         page,
         totalPage,
@@ -50,7 +50,7 @@ exports.getAll = async (req, res) => {
 
 exports.get = async (req, res) => {
   try {
-    const country = await Country.findOne({ where: { id: req.params.id } });
+    const township = await Township.findOne({ where: { id: req.params.id } });
     res.status(200).send({
       status: "Success",
       data: country,
@@ -65,7 +65,7 @@ exports.get = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const [rows, result] = await Country.update(req.body, {
+    const [rows, result] = await Township.update(req.body, {
       where: { id: req.params.id },
     });
     return res
@@ -81,7 +81,7 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    await Country.destroy({
+    await Township.destroy({
       where: {
         id: req.params.id,
       },

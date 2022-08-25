@@ -54,3 +54,51 @@ exports.create = async (req, res) => {
     }
   };
   
+  
+  exports.getAll = async (req, res) => {
+    const limit = req.query.limit || 10;
+    const page = req.query.page || 1;
+    delete req.query.limit;
+    delete req.query.page;
+  
+    let offset = 0 + (page - 1) * limit
+  
+    try {
+      const status = await Status.findAndCountAll({
+        where: req.query,
+        limit,
+        offset,
+      });
+      const totalPage = Math.ceil(status.count / limit);
+      if (page > totalPage) return res.json({ data: [] });
+      res.status(200).send({
+        status: "Success",
+        data: status.rows,
+        length: status.count,
+        pagination: {
+          page,
+          totalPage,
+        },
+      });
+    } catch (e) {
+      res.status(500).send({
+        status: "Error",
+        message: e.message,
+      });
+    }
+  };
+  
+  exports.get = async (req, res) => {
+    try {
+      const status = await Status.findOne({ where: { id: req.params.id } });
+      res.status(200).send({
+        status: "Success",
+        data: status,
+      });
+    } catch (e) {
+      res.status(500).send({
+        status: "Error",
+        message: e.message,
+      });
+    }
+  };

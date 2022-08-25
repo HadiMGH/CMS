@@ -1,6 +1,6 @@
 const Category = require("../models").Category;
 const Product = require("../models").Product;
-const ProductDetail = require("../models").ProductDetail;
+const ProductDetail = require("../models").ProductDetails;
 const Supplier = require("../models").Supplier;
 const Status = require("../models").Status;
 const bcrypt = require("bcrypt");
@@ -11,7 +11,7 @@ const { sequelize } = require("../models");
 
 exports.create = async (req, res) => {
     try {
-      const supplier = await Supplier.create(req.body);
+      const productDetail = await ProductDetail.create(req.body);
       res.status(201).send({ status: "Success", messages: "Data created" });
     } catch (e) {
       res.status(500).send({
@@ -22,7 +22,7 @@ exports.create = async (req, res) => {
   };
   exports.update = async (req, res) => {
     try {
-      const supplier = await Supplier.update(req.body, {
+      const productDetail = await ProductDetail.update(req.body, {
         where: { id: req.params.id },
       });
       return res
@@ -37,7 +37,7 @@ exports.create = async (req, res) => {
   };
   exports.delete = async (req, res) => {
     try {
-      await Supplier.destroy({
+      await ProductDetail.destroy({
         where: {
           id: req.params.id,
         },
@@ -63,17 +63,17 @@ exports.create = async (req, res) => {
     let offset = 0 + (page - 1) * limit
   
     try {
-      const supplier = await Supplier.findAndCountAll({
+      const productDetail = await ProductDetail.findAndCountAll({
         where: req.query,
         limit,
         offset,
       });
-      const totalPage = Math.ceil(supplier.count / limit);
+      const totalPage = Math.ceil(productDetail.count / limit);
       if (page > totalPage) return res.json({ data: [] });
       res.status(200).send({
         status: "Success",
-        data: supplier.rows,
-        length: supplier.count,
+        data: productDetail.rows,
+        length: productDetail.count,
         pagination: {
           page,
           totalPage,
@@ -89,10 +89,10 @@ exports.create = async (req, res) => {
   
   exports.get = async (req, res) => {
     try {
-      const supplier = await Supplier.findOne({ where: { id: req.params.id } });
+      const productDetail = await ProductDetail.findOne({ where: { id: req.params.id } });
       res.status(200).send({
         status: "Success",
-        data: supplier,
+        data: productDetail,
       });
     } catch (e) {
       res.status(500).send({
