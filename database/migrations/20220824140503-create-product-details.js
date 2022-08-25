@@ -9,20 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       weight: {
-        type: Sequelize.INTEGER,
-        allowNull:true
+        type: Sequelize.INTEGER
       },
       width: {
         type: Sequelize.INTEGER,
         allowNull:true
       },
-      length: {
+      lenght: {
+        type: Sequelize.INTEGER,
+        allowNull:true
+      },
+      height: {
         type: Sequelize.INTEGER,
         allowNull:true
       },
       color: {
-        type: Sequelize.STRING,
-        allowNull:true
+        type: Sequelize.STRING
       },
       size: {
         type: Sequelize.STRING,

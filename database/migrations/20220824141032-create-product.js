@@ -11,53 +11,57 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      categoryId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:"Categories",
+          key:"id"
+        } 
+      },
       productUnit: {
         type: Sequelize.STRING
       },
       productPrice: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       productQuantity: {
         type: Sequelize.INTEGER
       },
-      statusId: {
+      productStatusId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Statuses',
-          key: 'id'
-        }
-      },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Categories',
-          key: 'id'
-        }
-      },
-      productDetailId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'ProductDetails',
-          key: 'id'
-        }
+        references:{
+          model:"Statuses",
+          key:"id"
+        } 
       },
       supplierId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Suppliers',
-          key: 'id'
+        references:{
+          model:"Suppliers",
+          key:"id"
+        } ,
+        allowNull:true
+      },
+      productDetailId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model:"ProductDetails",
+          key:"id"
         }
       },
       otherDetail: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:true
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

@@ -11,21 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.Category , {foreignKey:'categoryId'})
-      this.hasMany(models.ProductDetail , {foreignKey:'productDetailId'})
-      this.hasMany(models.Status , {foreignKey:'statusId'})
-      this.hasMany(models.Supplier , {foreignKey:'supplierId'})
     }
   }
   Product.init({
     title: DataTypes.STRING,
-    productUnit: DataTypes.STRING,
-    productPrice: DataTypes.STRING,
-    productQuantity: DataTypes.INTEGER,
-    statusId: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER,
-    productDetailId: DataTypes.INTEGER,
+    productUnit: DataTypes.STRING,
+    productPrice: DataTypes.INTEGER,
+    productQuantity: DataTypes.INTEGER,
+    productStatusId: DataTypes.INTEGER,
     supplierId: DataTypes.INTEGER,
+    productDetailId: DataTypes.INTEGER,
     otherDetail: DataTypes.STRING
   }, {
     sequelize,

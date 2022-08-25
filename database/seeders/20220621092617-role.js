@@ -15,15 +15,15 @@ module.exports = {
         title: "Member",
       },
     ]);
-    await queryInterface.bulkInsert("UserRoles", [
-      {
-        userId: 1,
-        roleId: 1,
-      },
-    ]);
+    // await queryInterface.bulkInsert("UserRoles", [
+    //   {
+    //     userId: 1,
+    //     roleId: 1,
+    //   },
+    // ]);
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete("Roles", null, {});
-    await queryInterface.bulkDelete("UserRole", null, {});
+    //await queryInterface.bulkDelete("UserRole", null, {});
   },
 };
